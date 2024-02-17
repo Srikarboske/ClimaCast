@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Weather App
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" >
+
+
+<div class="container-fluid mt-5">
+  <ion-input class="search" fill="outline" placeholder="Enter Location" [(ngModel)]="cityName" (ngModelChange)="loadedData()" ></ion-input>
+</div>
+<div class="container-fluid">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Weather in {{weather.name}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list lines="none">
+        <ion-item>
+          <ion-label>Date : {{toDate|date:'longDate'}}  |  {{toDate|date:'mediumTime'}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Temperature : {{(weather.main.temp+1)}} °</ion-label>
+        </ion-item>
+        <ion-item>
+     
+          <ion-label>Humidity :   {{weather.main.humidity}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Wind Speed: {{weather.wind.speed}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Description: {{weather.weather[0].description}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</div>
+
+
+</ion-content>
